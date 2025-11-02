@@ -1,0 +1,43 @@
+{
+  "apps": [
+    {
+      "id": "bollettini",
+      "name": "Generatore Bollettini",
+      "description": "Generazione automatizzata bollettini sanità da file Excel",
+      "version": "1.0.3",
+      "icon": "./src/renderer/assets/icons/bollettini.png",
+      "executablePath": "./apps/bollettini/GeneratoreBollettini.exe",
+      "repoOwner": "ToseSenpai",
+      "repoName": "bollettini",
+      "installed": false,
+      "category": "Customs",
+      "backgroundColor": "#FF6B6B"
+    },
+    {
+      "id": "cerca-mrn",
+      "name": "Cerca MRN",
+      "description": "Tool per ricerca veloce MRN nel sistema",
+      "version": "1.0.0",
+      "icon": "./src/renderer/assets/icons/cerca-mrn.png",
+      "executablePath": "./apps/cerca-mrn/CercaMRN.exe",
+      "repoOwner": "ToseSenpai",
+      "repoName": "cerca-mrn",
+      "installed": false,
+      "category": "Logistics",
+      "backgroundColor": "#4ECDC4"
+    },
+    {
+      "id": "controllo-stato-nsis",
+      "name": "Controllo Stato NSIS",
+      "description": "Monitoraggio e controllo stato NSIS in tempo reale",
+      "version": "1.0.0",
+      "icon": "./src/renderer/assets/icons/nsis-check.png",
+      "executablePath": "./apps/controllo-stato-nsis/ControlloNSIS.exe",
+      "repoOwner": "ToseSenpai",
+      "repoName": "ControlloStatoNSIS",
+      "installed": false,
+      "category": "Monitoring",
+      "backgroundColor": "#95E1D3"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient ST Blue to Yellow -->
+    <linearGradient id="stGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00A8E1;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#33BFEC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFCC00;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Hexagonal background -->
+  <g transform="translate(100, 100)">
+    <!-- Outer hexagon (border) -->
+    <polygon
+      points="0,-85 73.61,-42.5 73.61,42.5 0,85 -73.61,42.5 -73.61,-42.5"
+      fill="url(#stGradient)"
+      opacity="0.15"
+      stroke="url(#stGradient)"
+      stroke-width="3"
+    />
+
+    <!-- Inner hexagon (darker) -->
+    <polygon
+      points="0,-70 60.62,-35 60.62,35 0,70 -60.62,35 -60.62,-35"
+      fill="#1a1a1a"
+      stroke="url(#stGradient)"
+      stroke-width="2"
+      opacity="0.9"
+    />
+
+    <!-- ST Text - Large and prominent -->
+    <text
+      x="0"
+      y="20"
+      font-family="Arial, sans-serif"
+      font-size="70"
+      font-weight="bold"
+      text-anchor="middle"
+      fill="url(#stGradient)"
+      filter="url(#shadow)"
+      letter-spacing="-2"
+    >ST</text>
+
+    <!-- Small "TOOLS" text below -->
+    <text
+      x="0"
+      y="45"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="600"
+      text-anchor="middle"
+      fill="#00A8E1"
+      letter-spacing="3"
+      opacity="0.8"
+    >TOOLS</text>
+
+    <!-- Decorative corner accents (DHL colors) -->
+    <circle cx="-55" cy="-30" r="4" fill="#FFCC00" opacity="0.7"/>
+    <circle cx="55" cy="-30" r="4" fill="#D40511" opacity="0.7"/>
+    <circle cx="0" cy="60" r="4" fill="#00A8E1" opacity="0.7"/>
+  </g>
+
+  <!-- Outer glow effect -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="url(#stGradient)" stroke-width="1" opacity="0.2"/>
+</svg>

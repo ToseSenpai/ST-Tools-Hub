@@ -1,0 +1,382 @@
+/**
+ * ST Tools Hub - App Cards Styles
+ *
+ * Stili per le card delle applicazioni con effetti hover
+ * Design moderno ispirato a Steam/Epic Games Launcher
+ *
+ * @author Simone Tosello (ST)
+ * @company DHL Express Italy
+ */
+
+/* ============================================================================
+   APP CARD - Discord-Style Minimalist
+   ============================================================================ */
+
+.app-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 240px;
+}
+
+/* Hover effect - Border + stronger shadow */
+.app-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================================================
+   CARD HEADER
+   ============================================================================ */
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.app-icon-container {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid var(--border-color);
+  transition: border-color var(--transition-fast);
+  overflow: hidden;
+}
+
+.app-card:hover .app-icon-container {
+  border-color: var(--accent);
+}
+
+.app-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.app-icon.placeholder {
+  font-size: 24px;
+  filter: grayscale(0.5);
+}
+
+.card-title-section {
+  flex: 1;
+  min-width: 0; /* Permette text-overflow */
+}
+
+.app-name {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--spacing-1) 0;
+  color: var(--text-primary);
+  line-height: var(--line-height-tight);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+.app-category {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ============================================================================
+   CARD BODY
+   ============================================================================ */
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-description {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-4);
+  flex: 1;
+}
+
+.app-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-4);
+  padding: var(--spacing-3);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color-dark);
+}
+
+.app-version {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  font-weight: var(--font-weight-regular);
+}
+
+.app-version strong {
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ============================================================================
+   STATUS BADGE
+   ============================================================================ */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  box-shadow: var(--elevation-1);
+}
+
+.status-badge.installed {
+  background: rgba(76, 175, 80, 0.2);
+  color: var(--success-green);
+  border: 1px solid var(--success-green);
+}
+
+.status-badge.not-installed {
+  background: rgba(153, 153, 153, 0.2);
+  color: var(--text-tertiary);
+  border: 1px solid var(--text-tertiary);
+}
+
+.status-badge.update-available {
+  background: rgba(255, 152, 0, 0.2);
+  color: var(--warning-orange);
+  border: 1px solid var(--warning-orange);
+  animation: pulse 2s infinite;
+}
+
+.status-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ============================================================================
+   CARD FOOTER
+   ============================================================================ */
+
+.card-footer {
+  margin-top: auto;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+}
+
+.card-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.card-actions .btn {
+  flex: 1;
+  justify-content: center;
+  font-size: 13px;
+  padding: 10px 16px;
+}
+
+.btn-launch {
+  background: linear-gradient(135deg, var(--st-blue), var(--st-blue-dark));
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-launch::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-launch:hover::before {
+  left: 100%;
+}
+
+.btn-launch:hover {
+  background: linear-gradient(135deg, var(--st-blue-light), var(--st-blue));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 168, 225, 0.4);
+}
+
+.btn-update {
+  background: var(--warning-orange);
+  color: white;
+}
+
+.btn-update:hover {
+  background: #f57c00;
+  transform: translateY(-2px);
+}
+
+.btn-install {
+  background: var(--success-green);
+  color: white;
+}
+
+.btn-install:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+}
+
+.btn-disabled {
+  background: var(--bg-tertiary);
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.btn-disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Icon button (secondary actions) */
+.btn-icon-small {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.btn-icon-small:hover {
+  background: var(--bg-hover);
+  border-color: var(--st-blue);
+  color: var(--st-blue);
+}
+
+/* ============================================================================
+   LOADING STATE
+   ============================================================================ */
+
+.card-loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.card-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  margin: -16px 0 0 -16px;
+  border: 3px solid var(--bg-tertiary);
+  border-top-color: var(--st-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* ============================================================================
+   PROGRESS BAR (for downloads/updates)
+   ============================================================================ */
+
+.app-progress {
+  margin-top: var(--spacing-sm);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-tertiary);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--st-blue), var(--st-blue-light));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.progress-text {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* ============================================================================
+   CARD VARIANTS
+   ============================================================================ */
+
+/* Featured card (se vogliamo evidenziare un'app) */
+.app-card.featured {
+  border: 2px solid var(--dhl-yellow);
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.2);
+}
+
+.app-card.featured::before {
+  height: 4px;
+}
+
+/* Disabled card */
+.app-card.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Animations removed for Discord-style minimalist design */
