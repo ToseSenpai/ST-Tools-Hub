@@ -8,7 +8,7 @@
  * @company DHL Express Italy
  */
 
-const { app, BrowserWindow, ipcMain, dialog } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog, Menu } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
@@ -28,13 +28,16 @@ let isDev = process.argv.includes('--dev');
  * Crea la finestra principale dell'applicazione
  */
 function createWindow() {
+  // Rimuovi completamente la barra del menu (Windows 11 style)
+  Menu.setApplicationMenu(null);
+
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
     minWidth: 900,
     minHeight: 600,
     title: 'ST Tools Hub',
-    backgroundColor: '#2b2d31',
+    backgroundColor: '#0a0c0f', // Dark-950 - Windows 11 matching splash screen
     icon: path.join(__dirname, 'build/icon.ico'),
     webPreferences: {
       contextIsolation: true,
@@ -53,10 +56,10 @@ function createWindow() {
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();
 
-    // Apri DevTools in modalità sviluppo
-    if (isDev) {
-      mainWindow.webContents.openDevTools();
-    }
+    // DevTools disabilitati per UI pulita - usa Ctrl+Shift+I se necessario
+    // if (isDev) {
+    //   mainWindow.webContents.openDevTools();
+    // }
   });
 
   // Cleanup on close
