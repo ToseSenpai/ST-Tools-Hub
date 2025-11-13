@@ -13,11 +13,11 @@
    ============================================================================ */
 
 .app-card {
-  background: var(--bg-secondary);
-  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, var(--bg-secondary), #1a1d23);
+  border-radius: var(--radius-xl);
   padding: var(--spacing-5);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-soft), 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
   position: relative;
   overflow: hidden;
   border: 2px solid var(--border-color);
@@ -25,12 +25,16 @@
   flex-direction: column;
   height: 100%;
   min-height: 240px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transform: translateY(0);
 }
 
-/* Hover effect - Border + stronger shadow */
+/* Hover effect - Border + glow + lift */
 .app-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-glow-blue), 0 8px 24px rgba(0, 0, 0, 0.4);
+  transform: translateY(-4px);
 }
 
 /* ============================================================================
@@ -47,19 +51,20 @@
 .app-icon-container {
   width: 48px;
   height: 48px;
-  border-radius: var(--radius-md);
-  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   border: 2px solid var(--border-color);
-  transition: border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   overflow: hidden;
 }
 
 .app-card:hover .app-icon-container {
   border-color: var(--accent);
+  box-shadow: var(--shadow-glow-blue);
 }
 
 .app-icon {
@@ -204,10 +209,11 @@
 }
 
 .btn-launch {
-  background: linear-gradient(135deg, var(--st-blue), var(--st-blue-dark));
+  background: linear-gradient(135deg, var(--accent) 0%, #1e90ff 100%);
   color: white;
   position: relative;
   overflow: hidden;
+  transform: scale(1);
 }
 
 .btn-launch::before {
@@ -217,7 +223,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   transition: left 0.5s;
 }
 
@@ -226,9 +232,9 @@
 }
 
 .btn-launch:hover {
-  background: linear-gradient(135deg, var(--st-blue-light), var(--st-blue));
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 168, 225, 0.4);
+  background: linear-gradient(135deg, #1e90ff 0%, var(--accent-cyan) 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-glow-blue), 0 4px 16px rgba(0, 120, 212, 0.5);
 }
 
 .btn-update {
